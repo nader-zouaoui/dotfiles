@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-TEAMS_RE='^(Microsoft Teams.*|Teams)$'
+TEAMS_RE='^teams-for-linux$'
 SLACK_RE='^(Slack)$'
 
 have() {
