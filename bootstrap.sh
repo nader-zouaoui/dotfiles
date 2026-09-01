@@ -16,8 +16,8 @@ CFG="${HOME}/.config"
 # If SSH auth to GitHub already works, fetch everything over SSH (needed for
 # the private nvim repo). Otherwise stay on anonymous HTTPS for the public
 # repos and rewrite only pushes to SSH.
-if ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -T git@github.com 2>&1 \
-    | grep -q "successfully authenticated"; then
+ssh_probe=$(ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -T git@github.com 2>&1 || true)
+if [[ "$ssh_probe" == *"successfully authenticated"* ]]; then
   git config --global url."git@github.com:".insteadOf "https://github.com/"
   ssh_ok=1
   echo "==> GitHub SSH auth works; using SSH for all repos."
