@@ -1,3 +1,9 @@
 [submodule "nvim"]
     path = nvim
-    url = git@github.com:nader-zouaoui/nvim.git
+	url = https://github.com/nader-zouaoui/nvim.git
+[submodule "omarchy/backgrounds"]
+	path = omarchy/backgrounds
+	url = https://github.com/nader-zouaoui/backgrounds.git
+[submodule "omarchy/plugins/omarchy-pomodoro"]
+	path = omarchy/plugins/omarchy-pomodoro
+	url = https://github.com/rodrigojacarei/omarchy-pomodoro.git

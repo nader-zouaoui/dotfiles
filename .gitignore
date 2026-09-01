@@ -1,8 +1,14 @@
-!hypr
-!nvim
-!omarchy
-!walker
-!waybar
-**/**
-!.gitignore
-!.gitmodules
+# Whitelist: ignore everything at the top level, then re-include what we track.
+/*
+!/.gitignore
+!/.gitmodules
+!/README.md
+!/bootstrap.sh
+!/hypr
+!/nvim
+!/omarchy
+
+# Junk that should never be committed (applies everywhere)
+*.bak
+*.bak.*
+*.omarchy-upgrade-*
