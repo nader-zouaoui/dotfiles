@@ -40,7 +40,7 @@ sync_repo() {
     local files n msg
     files=$(git -C "$repo" diff --cached --name-only)
     n=$(printf '%s\n' "$files" | wc -l)
-    msg=$(printf '%s\n' "$files" | head -3 | paste -sd ', ')
+    msg=$(printf '%s\n' "$files" | head -3 | paste -sd , | sed 's/,/, /g')
     [ "$n" -gt 3 ] && msg="$msg (+$((n - 3)) more)"
     git -C "$repo" commit -q -m "auto($label): $msg" && log "committed $label: $msg"
   fi
