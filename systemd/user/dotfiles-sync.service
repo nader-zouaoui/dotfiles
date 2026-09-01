@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto-commit and push dotfiles to GitHub
+
+[Service]
+ExecStart=%h/.config/dotfiles-sync/dotfiles-sync.sh
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target

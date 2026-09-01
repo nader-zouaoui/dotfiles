@@ -10,6 +10,8 @@ My [Omarchy](https://omarchy.org) setup, versioned directly in `~/.config`.
 | `omarchy/` | Omarchy shell config, custom plugins (`nader.*`), hooks, themes | files |
 | `omarchy/backgrounds/` | Wallpapers used by the `nader.background` plugin | submodule → [backgrounds](https://github.com/nader-zouaoui/backgrounds) |
 | `nvim/` | Neovim (LazyVim) config | submodule → [nvim](https://github.com/nader-zouaoui/nvim) |
+| `omarchy/plugins/omarchy-pomodoro/` | Third-party bar plugin | submodule → [omarchy-pomodoro](https://github.com/rodrigojacarei/omarchy-pomodoro) |
+| `dotfiles-sync/` + `systemd/user/dotfiles-sync.service` | Auto-commit/push watcher | files |
 
 Everything else in `~/.config` is ignored via a whitelist `.gitignore`.
 
@@ -26,14 +28,18 @@ moves the stock `nvim/` and `omarchy/backgrounds/` aside, and pulls both
 submodules. It clones over HTTPS so it works before SSH keys are set up;
 pushes are rewritten to SSH.
 
-## Day-to-day
+## Day-to-day: automatic sync
 
-The repo root is `~/.config`, so plain git works from anywhere inside it:
+`dotfiles-sync.service` (systemd user unit, enabled by the bootstrap) watches
+the tracked paths with inotify and, after 20s of quiet, auto-commits and
+pushes — leaf repos first (`nvim`, `backgrounds`), then this repo, so
+submodule pointer bumps land in the same pass. Push failures (offline) are
+retried on the next change or within 30 minutes.
 
 ```bash
-git -C ~/.config status
-git -C ~/.config add -A && git -C ~/.config commit -m "..." && git -C ~/.config push
+systemctl --user status dotfiles-sync   # is it running?
+journalctl --user -u dotfiles-sync -f   # what is it doing?
 ```
 
-Neovim changes are committed inside `~/.config/nvim` (its own repo), then the
-submodule pointer is bumped here.
+Manual git still works from anywhere inside `~/.config`
+(`git -C ~/.config status`); the service only commits what you leave dirty.

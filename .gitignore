@@ -7,6 +7,14 @@
 !/hypr
 !/nvim
 !/omarchy
+!/dotfiles-sync
+
+# systemd: track only our own unit, not omarchy-managed symlinks
+!/systemd
+/systemd/*
+!/systemd/user
+/systemd/user/*
+!/systemd/user/dotfiles-sync.service
 
 # Junk that should never be committed (applies everywhere)
 *.bak

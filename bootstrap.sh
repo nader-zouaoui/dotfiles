@@ -40,6 +40,20 @@ done
 git -C "$CFG" submodule sync --quiet
 git -C "$CFG" submodule update --init --recursive
 
+# submodule update leaves detached HEADs; the sync service commits into
+# nvim and backgrounds, so attach them to master. (pomodoro is third-party
+# and stays detached at the pinned commit.)
+for sub in nvim omarchy/backgrounds; do
+  git -C "$CFG/$sub" checkout -q -B master origin/master
+done
+
+# Start the auto-commit/push watcher.
+command -v inotifywait >/dev/null || omarchy pkg add inotify-tools || true
+if command -v systemctl >/dev/null; then
+  systemctl --user daemon-reload || true
+  systemctl --user enable --now dotfiles-sync.service || true
+fi
+
 echo "==> Done."
 echo "    Reload with:  hyprctl reload && omarchy restart shell"
 echo "    (or just log out and back in)"
