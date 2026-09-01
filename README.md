@@ -24,9 +24,10 @@ bash <(curl -fsSL https://raw.githubusercontent.com/nader-zouaoui/dotfiles/maste
 Then log out and back in (or `hyprctl reload && omarchy restart shell`).
 
 The script clones this repo into `~/.config` (overwriting stock configs),
-moves the stock `nvim/` and `omarchy/backgrounds/` aside, and pulls both
-submodules. It clones over HTTPS so it works before SSH keys are set up;
-pushes are rewritten to SSH.
+moves the stock `nvim/` and `omarchy/backgrounds/` aside, pulls the
+submodules, and enables the sync service. Public repos clone anonymously
+over HTTPS; the **nvim repo is private**, so set up a GitHub SSH key (or
+`gh auth login`) and rerun the script to restore it — reruns are safe.
 
 ## Day-to-day: automatic sync
 
