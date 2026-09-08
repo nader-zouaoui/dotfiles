@@ -63,6 +63,12 @@
     "position": "top",
     "transparent": false
   },
+  "cloneSourceRestores": [
+    "nader.background"
+  ],
+  "disabledPlugins": [
+    "omarchy.background"
+  ],
   "idle": {
     "lock": 300,
     "screensaver": 150
@@ -72,11 +78,5 @@
       "id": "nader.background"
     }
   ],
-  "version": 1,
-  "disabledPlugins": [
-    "omarchy.background"
-  ],
-  "cloneSourceRestores": [
-    "nader.background"
-  ]
+  "version": 1
 }
