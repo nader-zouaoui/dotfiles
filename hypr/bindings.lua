@@ -7,11 +7,10 @@ hl.unbind("SUPER + SHIFT + S") -- default: Google Maps webapp
 hl.unbind("SUPER + SHIFT + F") -- default: File manager
 
 o.bind("SUPER + B", "Browser", "omarchy-launch-browser")
-o.bind("SUPER + SHIFT + N", "Editor", "omarchy-launch-editor")
 o.bind("SUPER + SHIFT + T", "Activity", { tui = "btop" })
-o.bind("SUPER + SHIFT + D", "Docker", { tui = "lazydocker" })
-o.bind("SUPER + SHIFT + O", "Obsidian", { focus = "obsidian", launch = "obsidian" })
-o.bind("SUPER + SHIFT + ALT + G", "WhatsApp", { webapp = "https://web.whatsapp.com/", focus = true })
+-- SUPER+SHIFT+N (Editor), SUPER+SHIFT+D (Docker), SUPER+SHIFT+O (Obsidian) and
+-- SUPER+SHIFT+ALT+G (WhatsApp) are already bound identically by Omarchy's
+-- defaults. Re-binding them here without hl.unbind made each fire twice.
 o.bind("SUPER + SHIFT + F", "File manager", { launch = "nautilus --new-window" })
 
 -- Tmux terminal (replace default with cwd-aware version)
