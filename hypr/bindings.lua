@@ -20,6 +20,9 @@ o.bind("SUPER + ALT + RETURN", "Tmux", 'uwsm-app -- xdg-terminal-exec --dir="$(o
 -- Omarchy menu on SUPER+SHIFT+P
 o.bind("SUPER + SHIFT + P", "Omarchy menu", "omarchy-menu")
 
+-- App launcher back on SUPER+SPACE (4.5 default: Omarchy menu, which is on SUPER+SHIFT+P)
+o.rebind("SUPER + SPACE", "App launcher", { menu = "apps" })
+
 -- SUPER+T runs btop (default float-toggle unbound)
 hl.unbind("SUPER + T")
 o.bind("SUPER + T", "Activity", { tui = "btop" })
