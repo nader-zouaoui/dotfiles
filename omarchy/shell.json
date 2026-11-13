@@ -53,7 +53,29 @@
       ],
       "centerEnd": [
         {
-          "id": "omarchy.elsewhen"
+          "id": "omarchy.elsewhen",
+          "cities": [
+            {
+              "name": "Tunis",
+              "zone": "Africa/Tunis"
+            },
+            {
+              "name": "Dubai",
+              "zone": "Asia/Dubai"
+            },
+            {
+              "name": "Tokyo",
+              "zone": "Asia/Tokyo"
+            },
+            {
+              "name": "Los Angeles",
+              "zone": "America/Los_Angeles"
+            },
+            {
+              "name": "New York",
+              "zone": "America/New_York"
+            }
+          ]
         },
         {
           "id": "omarchy.weather"
