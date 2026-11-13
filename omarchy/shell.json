@@ -1,28 +1,12 @@
 {
   "bar": {
-    "centerAnchor": "omarchy.clock",
     "layout": {
       "center": [
-        {
-          "id": "omarchy.indicators"
-        },
         {
           "format": "dddd HH:mm",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
-        },
-        {
-          "id": "omarchy.keyboard-layout"
-        },
-        {
-          "id": "omarchy.weather"
-        },
-        {
-          "id": "omarchy-pomodoro"
-        },
-        {
-          "id": "omarchy.system-update"
         }
       ],
       "left": [
@@ -36,6 +20,9 @@
       "right": [
         {
           "id": "omarchy.tray"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
         },
         {
           "id": "omarchy.tailscale"
@@ -58,25 +45,34 @@
         {
           "id": "omarchy.power"
         }
+      ],
+      "centerBegin": [
+        {
+          "id": "omarchy.indicators"
+        }
+      ],
+      "centerEnd": [
+        {
+          "id": "omarchy.elsewhen"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy-pomodoro"
+        },
+        {
+          "id": "omarchy.system-update"
+        }
       ]
     },
     "position": "top",
     "transparent": false
   },
-  "cloneSourceRestores": [
-    "nader.background"
-  ],
-  "disabledPlugins": [
-    "omarchy.background"
-  ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [
-    {
-      "id": "nader.background"
-    }
-  ],
+  "plugins": [],
   "version": 1
 }
