@@ -17,6 +17,7 @@ EVENTS=(-e modify -e create -e delete -e move -e attrib)
 EXCLUDE='(/\.git(/|$)|\.bak|\.swp$|~$|/4913$|\.tmp$)'
 WATCH=(
   "$CFG/hypr" "$CFG/omarchy" "$CFG/nvim" "$CFG/dotfiles-sync"
+  "$CFG/nautilus-python"
   "$CFG/.gitignore" "$CFG/.gitmodules" "$CFG/README.md" "$CFG/bootstrap.sh"
 )
 

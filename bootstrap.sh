@@ -68,6 +68,14 @@ for sub in nvim omarchy/backgrounds; do
   [ -e "$CFG/$sub/.git" ] && git -C "$CFG/$sub" checkout -q -B master origin/master
 done
 
+# Nautilus only loads extensions from ~/.local/share, so link ours there.
+# (Stock Omarchy extensions in that folder are left alone.)
+ext_dir="${HOME}/.local/share/nautilus-python/extensions"
+mkdir -p "$ext_dir"
+for ext in "$CFG"/nautilus-python/extensions/*.py; do
+  [ -e "$ext" ] && ln -sfn "$ext" "$ext_dir/$(basename "$ext")"
+done
+
 # Start the auto-commit/push watcher.
 command -v inotifywait >/dev/null || omarchy pkg add inotify-tools || true
 if command -v systemctl >/dev/null; then

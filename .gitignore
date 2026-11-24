@@ -8,6 +8,7 @@
 !/nvim
 !/omarchy
 !/dotfiles-sync
+!/nautilus-python
 
 # systemd: track only our own unit, not omarchy-managed symlinks
 !/systemd
@@ -20,3 +21,4 @@
 *.bak
 *.bak.*
 *.omarchy-upgrade-*
+__pycache__/
