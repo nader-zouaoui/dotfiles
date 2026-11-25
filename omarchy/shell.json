@@ -74,6 +74,13 @@
             {
               "name": "New York",
               "zone": "America/New_York"
+            },
+            {
+              "name": "Salt Lake City",
+              "zone": "America/Denver",
+              "lat": 40.76078,
+              "lon": -111.89105,
+              "region": "Utah, US"
             }
           ]
         },
